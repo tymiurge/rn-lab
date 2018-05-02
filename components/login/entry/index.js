@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Platform, View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import Swiper from 'react-native-swiper'
 
 class EntryScreen extends Component {
     render() {
@@ -18,18 +19,63 @@ class EntryScreen extends Component {
                     </View>
                     
                 </View>
-
                 <View style={styles.bottomView}>
+                    <Swiper 
+                        style={styles.swiperWrapper}
+                        dot={
+                            <View 
+                                style={{
+                                    backgroundColor: thirdColor, 
+                                    width: 5, 
+                                    height: 5, 
+                                    borderRadius: 4, 
+                                    marginLeft: 3, 
+                                    marginRight: 3, 
+                                    marginTop: 3, 
+                                    marginBottom: 3
+                                }}
+                            />
+                        }
+                        activeDot={
+                            <View 
+                                style={{
+                                    backgroundColor: '#FFFFFF', 
+                                    width: 8, 
+                                    height: 8, 
+                                    borderRadius: 4, 
+                                    marginLeft: 3, 
+                                    marginRight: 3, 
+                                    marginTop: 3, 
+                                    marginBottom: 3
+                                }} 
+                            />
+                        }
+                    >
+                        <View style={styles.slide}>
+                            <Text style={styles.swiperText}>Hello Swiper</Text>
+                        </View>
+                        <View style={styles.slide}>
+                        <Text style={styles.swiperText}>Beautiful</Text>
+                        </View>
+                        <View style={styles.slide}>
+                        <Text style={styles.swiperText}>And simple</Text>
+                        </View>
+                    </Swiper>
 
-                    <TouchableOpacity style={[styles.button, styles.leftButton]} onPress={() => {}}>
-                        <Text style={styles.buttonText}>Sign Up</Text>
-                    </TouchableOpacity>
+                    <View style={styles.buttonsContainer}>
 
-                    <TouchableOpacity style={[styles.button, styles.rightButton]} onPress={() => {}}>
-                        <Text style={styles.buttonText}>Log In</Text>
-                    </TouchableOpacity>
-                    
-                </View>
+                        <TouchableOpacity style={[styles.button, styles.leftButton]} onPress={() => {}}>
+                            <Text style={styles.buttonText}>Sign Up</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={[styles.button, styles.rightButton]} onPress={() => {}}>
+                            <Text style={styles.buttonText}>Log In</Text>
+                        </TouchableOpacity>
+
+                        </View>    
+                    </View>
+
+                
 
             </View>
         );
@@ -71,7 +117,7 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     bottomView: {
-        flexDirection: 'row',
+        
         width: '100%', 
         //height: 100 + (Platform.OS === 'ios' ? 20 : 0), 
         justifyContent: 'center', 
@@ -80,6 +126,11 @@ const styles = StyleSheet.create({
         bottom: 0,
         paddingBottom: 20
     },
+
+    buttonsContainer: {
+        flexDirection: 'row',
+    },
+
     button: {
         backgroundColor: thirdColor,
         paddingVertical: 10,
@@ -100,6 +151,27 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#FFFFFF',
         fontWeight: '700'
+    },
+
+    swiperWrapper: {
+        height: 100,
+        backgroundColor: firstColor,
+        marginBottom: 20,
+        marginLeft: 20,
+        marginRight: 20
+        
+    },
+
+    slide: {
+        justifyContent: 'center',
+        
+        alignItems: 'center',
+    },
+
+    swiperText: {
+        color: '#FFFFFF',
+        fontSize: 20,
+        fontWeight: 'bold'
     }
 });
 

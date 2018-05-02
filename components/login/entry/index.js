@@ -25,7 +25,7 @@ class EntryScreen extends Component {
                         dot={
                             <View 
                                 style={{
-                                    backgroundColor: thirdColor, 
+                                    backgroundColor: '#FFFFFF', 
                                     width: 5, 
                                     height: 5, 
                                     borderRadius: 4, 
@@ -52,10 +52,14 @@ class EntryScreen extends Component {
                         }
                     >
                         <View style={styles.slide}>
-                            <Text style={styles.swiperText}>Hello Swiper</Text>
+                            <Text style={styles.swiperText}>First time seeing it? - Sign Up!</Text>
+                            <Text style={styles.swiperText}>Registered? Nice to see you again.</Text>
+                            <Text style={styles.swiperText}>Log In and let's rock.</Text>
+
                         </View>
                         <View style={styles.slide}>
-                        <Text style={styles.swiperText}>Beautiful</Text>
+                            <Text style={styles.swiperText}>Beautiful</Text>
+                            <Text style={styles.swiperText}>Beautiful</Text>
                         </View>
                         <View style={styles.slide}>
                         <Text style={styles.swiperText}>And simple</Text>
@@ -129,6 +133,7 @@ const styles = StyleSheet.create({
 
     buttonsContainer: {
         flexDirection: 'row',
+
     },
 
     button: {
@@ -154,18 +159,20 @@ const styles = StyleSheet.create({
     },
 
     swiperWrapper: {
-        height: 100,
-        backgroundColor: firstColor,
-        marginBottom: 20,
-        marginLeft: 20,
-        marginRight: 20
-        
+        height: 200,
+        //flex: 2       
+        //backgroundColor: thirdColor,
+        //marginBottom: 20,
     },
 
     slide: {
+        height: 150,
         justifyContent: 'center',
-        
+        backgroundColor: thirdColor,
         alignItems: 'center',
+        borderRadius: 20,
+        marginLeft: 20,
+        marginRight: 20,
     },
 
     swiperText: {

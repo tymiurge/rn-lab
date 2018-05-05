@@ -1,0 +1,1 @@
+// https://blog.nativebase.io/react-native-login-logout-animation-722001c8fc55

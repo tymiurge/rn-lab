@@ -3,13 +3,15 @@ import { StyleSheet, Text, View } from 'react-native'
 // import Login from './components/login/simple/Login'
 // import EntryScreen from './components/login/entry'
 // import CardsList from './components/list/cards-list-rb'
-import CardsList from './components/list/cards-list'
+// import CardsList from './components/list/cards-list'
+import MetroDashboard from './components/dashboard/metro'
 
 export default class App extends React.Component {
   render() {
     return (
       // <Login />
-      <CardsList />
+      // <CardsList />
+      <MetroDashboard />
     );
   }
 }

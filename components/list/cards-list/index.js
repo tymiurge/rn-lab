@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Platform, View, Text, StyleSheet, Slider } from 'react-native';
 
 class CardsList extends Component {
     render() {
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
+        paddingTop: 80 + (( Platform.OS === 'ios' ) ? 40 : 0),
     },
 });
 

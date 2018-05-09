@@ -5,13 +5,15 @@ import { StyleSheet, Text, View } from 'react-native'
 // import CardsList from './components/list/cards-list-rb'
 // import CardsList from './components/list/cards-list'
 import MetroDashboard from './components/dashboard/metro'
+import SkillsList from './components/list/add-skills'
 
 export default class App extends React.Component {
   render() {
     return (
       // <Login />
       // <CardsList />
-      <MetroDashboard />
+      // <MetroDashboard />
+      <SkillsList />
     );
   }
 }

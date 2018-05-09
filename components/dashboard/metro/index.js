@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Icon, Slider, ButtonGroup, Card } from 'react-native-elements'
+import { Icon, Slider, ButtonGroup, Card, PricingCard } from 'react-native-elements'
 //import Slider from 'react-native-slider'
 //var Slider = require('react-native-slider');
 
@@ -95,6 +95,24 @@ class MetroDashboard extends Component {
                 </TouchableOpacity>
             </View>
             </Card>
+
+            <View style={{flexDirection: 'row'}} >
+              <PricingCard
+                color='#4f9deb'
+                title='Free'
+                price='$0'
+                info={['1 User']}
+                button={{ title: 'GET STARTED', icon: 'flight-takeoff' }}
+                />
+
+                          <PricingCard
+                color='#4f9deb'
+                title='Free'
+                price='$0'
+                info={['1 User']}
+                button={{ title: 'GET STARTED', icon: 'flight-takeoff' }}
+                />
+            </View>
 
             
                 

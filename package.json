@@ -19,11 +19,15 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "art": "^0.10.2",
+    "d3": "^5.2.0",
+    "d3-shape": "^1.2.0",
     "expo": "^26.0.0",
     "native-base": "^2.4.3",
     "prop-types": "^15.6.1",
     "react": "16.3.0",
     "react-native": "^0.54.4",
+    "react-native-elements": "^0.19.1",
     "react-native-slider": "^0.11.0",
     "react-native-swiper": "^1.5.13"
   }

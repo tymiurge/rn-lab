@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, View, Text, StyleSheet } from 'react-native';
+import { Platform, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon, Slider, ButtonGroup, Card } from 'react-native-elements'
 //import Slider from 'react-native-slider'
 //var Slider = require('react-native-slider');
@@ -24,34 +24,14 @@ class MetroDashboard extends Component {
     render() {
         return (
             <View style={styles.container}>
-            <Slider
-            trackStyle={iosStyles.track}
-            thumbStyle={iosStyles.thumb}
-            minimumTrackTintColor='#1073ff'
-            maximumTrackTintColor='#b7b7b7'
-          />
-                <Slider
-                    value={10}
-                    onValueChange={(value) => {}}
-                    minimumValue={1}
-                    maximumValue={20}
-                    thumbTintColor={'#FFF'}
-                />
+            
 
-                 <Slider
-            trackStyle={customStyles7.track}
-            thumbStyle={customStyles7.thumb}
-            minimumTrackTintColor='#2f2f2f'
-          />
-
-           <Slider
-            style={customStyles8.container}
-            trackStyle={customStyles8.track}
-            thumbStyle={customStyles8.thumb}
-            minimumTrackTintColor='#31a4db'
-            thumbTouchSize={{width: 50, height: 40}}
-          />
-            <Card title='your rating'>
+               
+            <Card title='your rating'
+                containerStyle={{
+                    backgroundColor: lightDark
+                }}
+            >
           
           <Slider
             trackStyle={customStyles6.track}
@@ -64,11 +44,59 @@ class MetroDashboard extends Component {
 
           <ButtonGroup
       onPress={() => {}}
-      selectedIndex={'Home'}
+      selectedIndex={1}
       buttons={['Home', 'Country', 'City']}
       //containerStyle={{height: 100}}
     />
             </Card>
+
+            <Card
+                title={'Last week rating change'}
+                containerStyle={{
+                    backgroundColor: mainDark
+                }}
+            >
+                <View 
+                style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                }}
+            >
+                <TouchableOpacity style={{
+                    backgroundColor: lightDark,
+                    height: 50,
+                    width: 50,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Text
+                        style={{
+                            fontSize: 18,
+                            color: 'white'
+                        }}
+                    >
+                        50
+                    </Text>
+                    
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{
+                    backgroundColor: lightDark,
+                    height: 50,
+                    width: 50,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Text
+                    >
+                        AAAA
+                    </Text>
+                    
+                </TouchableOpacity>
+            </View>
+            </Card>
+
+            
                 
             </View>
         );

@@ -15,11 +15,25 @@ class InputsScreen extends Component {
         return (
             <View style={styles.container}>
                 <Icon
+                    name='user'
+                    size={24}
+                    color='black'
+                />
+                <Input
+                    placeholder='INPUT WITH ICON'
+                    leftIcon={{ type: 'font-awesome', name: 'user' }}
+                />
+
+                <Input
+  placeholder='INPUT WITH CUSTOM ICON'
+  rightIcon={
+    <Icon
       name='user'
       size={24}
       color='black'
     />
-
+  }
+/>
                 
             </View>
         );
@@ -32,6 +46,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
+        //marginStart: 20,
     },
 });
 

@@ -6,6 +6,7 @@ import { StyleSheet, Text, View } from 'react-native'
 // import CardsList from './components/list/cards-list'
 import MetroDashboard from './components/dashboard/metro'
 import SkillsList from './components/list/add-skills'
+import InputsScreen from './components/inputs/Inputs'
 
 export default class App extends React.Component {
   render() {
@@ -13,7 +14,8 @@ export default class App extends React.Component {
       // <Login />
       // <CardsList />
       // <MetroDashboard />
-      <SkillsList />
+      //<SkillsList />
+      <InputsScreen />
     );
   }
 }

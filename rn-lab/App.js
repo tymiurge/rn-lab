@@ -8,6 +8,7 @@ import MetroDashboard from './components/dashboard/metro'
 import SkillsList from './components/list/add-skills'
 import InputsScreen from './components/inputs/Inputs'
 import App1 from './components/navigation'
+import ProgressDashboard from './components/dashboard/progress-chart'
 
 export default class App extends React.Component {
   render() {
@@ -17,7 +18,8 @@ export default class App extends React.Component {
       // <MetroDashboard />
       //<SkillsList />
       //<InputsScreen />
-      <App1 />
+      // <App1 />
+      <ProgressDashboard />
     );
   }
 }

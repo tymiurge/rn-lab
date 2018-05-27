@@ -1,0 +1,7 @@
+node_modules/**/*
+*/node_modules/**
+node_modules/*
+.expo/*
+npm-debug.*
+*/node_modules/*
+rn-lab-expo/node_modules/*

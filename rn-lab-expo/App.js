@@ -1,22 +1,51 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import SvgExample from './src/components/Picture'
+import React from 'react'
+import { Constants, Svg } from 'expo';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <SvgExample />  
-      </View>
-    );
-  }
+const {
+    Circle,
+    Ellipse,
+    G,
+    LinearGradient,
+    RadialGradient,
+    Line,
+    Path,
+    Polygon,
+    Polyline,
+    Rect,
+    Symbol,
+    Text,
+    Use,
+    Defs,
+    Stop
+} = Svg
+
+class SvgExample extends React.Component {
+    render() {
+        return (
+            <Svg
+                height="100"
+                width="100"
+            >
+                <Circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="blue"
+                    strokeWidth="2.5"
+                    fill="green"
+                />
+                <Rect
+                    x="15"
+                    y="15"
+                    width="70"
+                    height="70"
+                    stroke="red"
+                    strokeWidth="2"
+                    fill="yellow"
+                />
+            </Svg>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default SvgExample

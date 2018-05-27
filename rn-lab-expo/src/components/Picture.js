@@ -1,5 +1,6 @@
 import React from 'react'
-import { Constants, Svg } from 'expo';
+//import { StyleSheet, View } from 'react-native';
+import { Svg } from 'expo'
 
 const {
     Circle,
@@ -21,7 +22,9 @@ const {
 
 class SvgExample extends React.Component {
     render() {
+        
         return (
+                
             <Svg
                 height="100"
                 width="100"
@@ -44,9 +47,9 @@ class SvgExample extends React.Component {
                     fill="yellow"
                 />
             </Svg>
+            
         );
     }
 }
 
 export default SvgExample
-

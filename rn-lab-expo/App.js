@@ -1,51 +1,78 @@
-import React from 'react'
-import { Constants, Svg } from 'expo';
+'use strict';
+import React, {Component} from 'react'
+import {View, StyleSheet} from 'react-native'
 
-const {
-    Circle,
-    Ellipse,
-    G,
-    LinearGradient,
-    RadialGradient,
-    Line,
-    Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Text,
-    Use,
-    Defs,
-    Stop
-} = Svg
+import Svg, {Defs, Stop, G, Path, LinearGradient, Line} from 'react-native-svg'
+import {arc} from 'd3-shape'
 
-class SvgExample extends React.Component {
-    render() {
-        return (
-            <Svg
-                height="100"
-                width="100"
-            >
-                <Circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    stroke="blue"
-                    strokeWidth="2.5"
-                    fill="green"
-                />
-                <Rect
-                    x="15"
-                    y="15"
-                    width="70"
-                    height="70"
-                    stroke="red"
-                    strokeWidth="2"
-                    fill="yellow"
-                />
-            </Svg>
-        );
-    }
+
+export default class TestPage extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    let rIn, rOut, rMiddle, startAngle, endAngle;
+    rIn = 50;//inner circle radius
+    rOut = 55;//outer circle radius
+    rMiddle = 52.5;//middle circle radius
+    startAngle = 0;//start angle 0
+    endAngle = 300;//end angle 300
+
+    let circlePath = arc()
+      .innerRadius(rIn)
+      .outerRadius(rOut)
+      .cornerRadius(rMiddle - rIn)
+      .startAngle(startAngle)
+      .endAngle(2 * Math.PI / 360 * endAngle);
+
+    return (
+      <View style={Styles.wrap}>
+        <View style={{width: 300, height: 200, backgroundColor: '#000000', marginTop: 2}}>
+          <Svg width={300} height={200}>
+            <Defs>
+              <LinearGradient
+                id={'wholeArcLengthLine'}
+                x1={0}
+                y1={0}
+                x2={(2 * Math.PI * rMiddle * endAngle / 360).toFixed(2)}
+                y2={0}>
+                <Stop offset="0" stopColor={"#ff0000"}/>
+                <Stop offset="0.36" stopColor={"#ef52a3"}/>
+                <Stop offset="0.7" stopColor={"#b445dd"}/>
+                <Stop offset="1" stopColor={"#0000ff"}/>
+              </LinearGradient>
+            </Defs>
+
+            <G>
+              <Line
+                x={5}
+                y={10}
+                x1={0}
+                y1={0}
+                x2={(2 * Math.PI * rMiddle * endAngle / 360).toFixed(2)}
+                y2={0}
+                stroke={'url(#wholeArcLengthLine)'}
+                strokeWidth="5"/>
+
+              <Path
+                x={100}
+                y={100}
+                d={circlePath()}
+                fill={'url(#wholeArcLengthLine)'}/>
+            </G>
+          </Svg>
+        </View>
+      </View>
+    )
+  }
 }
 
-export default SvgExample
+const Styles = StyleSheet.create({
+  wrap: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

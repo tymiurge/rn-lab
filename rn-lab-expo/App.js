@@ -15,8 +15,12 @@ export default class Facade extends Component {
                 values={[
                     {progress: 50, color: 'red'},
                     {progress: 75, color: 'green'},
+                    {progress: 10, color: 'blue'},
+                    {progress: 30, color: 'brown'},
+                    {progress: 100, color: 'yellow'},
+                    {progress: 35, color: 'purple'},
                 ]}
-                style={{}}
+                style={{gap: 20}}
             />
         </View>
     )

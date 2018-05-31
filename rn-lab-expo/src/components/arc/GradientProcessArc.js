@@ -50,18 +50,6 @@ export default class GradientProcessArc extends React.Component {
             .startAngle(0)
             .endAngle(360)
 
-        let circlePath1 = arc()
-            .innerRadius(rIn - 10)
-            .outerRadius(rOut - 10)
-            .startAngle(0)
-            .endAngle( (2 * Math.PI / 360) * progress * 3.6 )
-        
-        let fullCirclePath1 = arc()
-            .innerRadius(rIn - 10)
-            .outerRadius(rOut - 10)
-            .startAngle(0)
-            .endAngle(360)    
-        
         return (
             <Svg width={viewWidth} height={viewWidth}>
                 <G>
@@ -80,21 +68,6 @@ export default class GradientProcessArc extends React.Component {
                     />
                 </G>
 
-                <G>
-                    <Path
-                        x={viewWidth / 2}
-                        y={viewWidth / 2}
-                        d={fullCirclePath1()}
-                        fill={fullCircleColor}
-                    />
-
-                    <Path
-                        x={viewWidth / 2}
-                        y={viewWidth / 2}
-                        d={circlePath1()}
-                        fill={lineColor}
-                    />
-                </G>
             </Svg>
         )
     }

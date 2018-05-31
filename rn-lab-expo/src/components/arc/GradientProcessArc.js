@@ -1,71 +1,68 @@
 'use strict';
-import React, {Component} from 'react'
-import { View, StyleSheet, Dimensions } from 'react-native'
-
+import React from 'react'
+import { View, Dimensions } from 'react-native'
 import Svg, {Defs, Stop, G, Path, LinearGradient, Line} from 'react-native-svg'
-import {arc} from 'd3-shape'
+import { arc } from 'd3-shape'
+import PropTypes from 'prop-types'
 
 
-export default class GradientArc extends Component {
+export default class GradientProcessArc extends React.Component {
   
+    static propTypes = {
+        progress: PropTypes.number.isRequired,
+        style: PropTypes.object
+    }
 
-  render() {
-    let progress = 50
+    static defaultProps = {
+        style: {
+            fullCircleColor: '#d3d3d3',
+            padding: 20,
+            lineWidth: 5,
+            lineColor: 'red',
+            viewWidth: Dimensions.get('window').width
+        }
+    }
 
+    render() {
+        const { progress, style } = this.props
+        const { fullCircleColor, padding, lineWidth, lineColor, viewWidth } = style
+        let rIn = viewWidth / 2 - padding
+        let rOut = viewWidth / 2 - lineWidth - padding;
+        let endAngle = progress * 3.6
 
-    let viewWidth = Dimensions.get('window').width;
-    let rIn, rOut, rMiddle, startAngle, endAngle;
-    
-    rIn = 135;//inner circle radius
-    rOut = 130;//outer circle radius
-    startAngle = 0;//start angle 0
-    endAngle = 180;//end angle 300
+        let circlePath = arc()
+            .innerRadius(rIn)
+            .outerRadius(rOut)
+            .startAngle(0)
+            .endAngle(2 * Math.PI / 360 * endAngle)
+        
+        let fullCirclePath = arc()
+            .innerRadius(rIn)
+            .outerRadius(rOut)
+            .startAngle(0)
+            .endAngle(360)
+        
+        return (
+            <View style={{borderTopColor: 'red', borderTopWidth: 1, marginTop: 50}}>
+            <Svg width={viewWidth} height={viewWidth}>
+                <G>
+                    <Path
+                    
+                        x={viewWidth / 2}
+                        y={viewWidth / 2}
+                        d={fullCirclePath()}
+                        fill={fullCircleColor}
+                    />
 
-    /*
-    rIn = 60;//inner circle radius
-    rOut = 55;//outer circle radius
-    rMiddle = 52.5;//middle circle radius
-    startAngle = 0;//start angle 0
-    endAngle = 270;//end angle 300
-     */
-
-    //var viewWidth = Dimensions.get('window').width;
-
-    let circlePath = arc()
-      .innerRadius(rIn)
-      .outerRadius(rOut)
-      .startAngle(startAngle)
-      .endAngle(2 * Math.PI / 360 * endAngle)
-      
-
-    return (
-      <View style={Styles.wrap}>
-        <View style={{backgroundColor: 'white'}}>
-          <Svg width={viewWidth} height={viewWidth}>
-            
-
-            <G>
-              
-
-              <Path
-                rotation={-90}
-                x={viewWidth / 2}
-                y={viewWidth / 2}
-                d={circlePath()}
-                fill={'black'}/>
-            </G>
-          </Svg>
-        </View>
-      </View>
+                    <Path
+                        x={viewWidth / 2}
+                        y={viewWidth / 2}
+                        d={circlePath()}
+                        fill={lineColor}
+                    />
+                </G>
+            </Svg>
+            </View>
     )
-  }
+    }
 }
-
-const Styles = StyleSheet.create({
-  wrap: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

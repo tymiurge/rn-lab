@@ -7,7 +7,7 @@ import GradientProcessArc from './src/components/arc/GradientProcessArc'
 export default class Facade extends Component {
   render() {
     return (
-        <GradientProcessArc />
+        <GradientProcessArc progress={75} />
     )
   }
 }

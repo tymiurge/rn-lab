@@ -1,31 +1,39 @@
 'use strict';
 import React from 'react'
-import { View, Dimensions } from 'react-native'
+import { Dimensions } from 'react-native'
 import Svg, {Defs, Stop, G, Path, LinearGradient, Line} from 'react-native-svg'
 import { arc } from 'd3-shape'
 import PropTypes from 'prop-types'
 
 
 export default class GradientProcessArc extends React.Component {
-  
+
     static propTypes = {
         progress: PropTypes.number.isRequired,
-        style: PropTypes.object
+        style: PropTypes.shape({
+            fullCircleColor: PropTypes.string,
+            padding: PropTypes.number,
+            lineWidth: PropTypes.number,
+            lineColor: PropTypes.string,
+            viewWidth: PropTypes.number
+        })
     }
 
-    static defaultProps = {
-        style: {
-            fullCircleColor: '#d3d3d3',
-            padding: 20,
-            lineWidth: 5,
-            lineColor: 'red',
-            viewWidth: Dimensions.get('window').width
+    constructor(props) {
+        super(props)
+        const { fullCircleColor, padding, lineWidth, lineColor, viewWidth } = props.style
+        this.style = {
+            fullCircleColor: fullCircleColor || '#d3d3d3',
+            padding: padding || 20,
+            lineWidth: lineWidth || 5,
+            lineColor: lineColor || 'red',
+            viewWidth: viewWidth || Dimensions.get('window').width    
         }
     }
-
+    
     render() {
-        const { progress, style } = this.props
-        const { fullCircleColor, padding, lineWidth, lineColor, viewWidth } = style
+        const { progress } = this.props
+        const { fullCircleColor, padding, lineWidth, lineColor, viewWidth } = this.style
         let rIn = viewWidth / 2 - padding
         let rOut = viewWidth / 2 - lineWidth - padding;
         let endAngle = progress * 3.6
@@ -34,7 +42,7 @@ export default class GradientProcessArc extends React.Component {
             .innerRadius(rIn)
             .outerRadius(rOut)
             .startAngle(0)
-            .endAngle(2 * Math.PI / 360 * endAngle)
+            .endAngle( (2 * Math.PI / 360) * progress * 3.6 )
         
         let fullCirclePath = arc()
             .innerRadius(rIn)
@@ -43,11 +51,9 @@ export default class GradientProcessArc extends React.Component {
             .endAngle(360)
         
         return (
-            <View style={{borderTopColor: 'red', borderTopWidth: 1, marginTop: 50}}>
             <Svg width={viewWidth} height={viewWidth}>
                 <G>
                     <Path
-                    
                         x={viewWidth / 2}
                         y={viewWidth / 2}
                         d={fullCirclePath()}
@@ -62,7 +68,6 @@ export default class GradientProcessArc extends React.Component {
                     />
                 </G>
             </Svg>
-            </View>
-    )
+        )
     }
 }

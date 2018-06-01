@@ -10,8 +10,11 @@ import ArcFilterDashboard from './src/components/dashboards/ArcFilterDashboard'
 export default class Facade extends Component {
   render() {
     return (
-        
-            /*<GradientProcessArc progress={75} style={{lineColor: 'yellow'}}/>*/
+            //<GradientArc />
+            //
+            <View style={{borderTopColor: 'red', borderTopWidth: 1, marginTop: 50}}>
+            <GradientProcessArc progress={75} style={{lineColor: 'yellow'}}/>
+            </View>
             /*
                 <View style={{borderTopColor: 'red', borderTopWidth: 1, marginTop: 50}}>
                 <MultiArc 
@@ -27,7 +30,7 @@ export default class Facade extends Component {
                 />
                 </View>
             */
-            <ArcFilterDashboard />
+            //<ArcFilterDashboard />
         
     )
   }

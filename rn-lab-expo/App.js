@@ -5,6 +5,7 @@ import GradientArc from './src/components/arc/GradientArc'
 import GradientProcessArc from './src/components/arc/GradientProcessArc'
 import MultiArc from './src/components/arc/MultiArc'
 import ArcFilterDashboard from './src/components/dashboards/ArcFilterDashboard'
+import HexagonChart from './src/components/charts/Hexagon'
 
 
 export default class Facade extends Component {
@@ -12,9 +13,11 @@ export default class Facade extends Component {
     return (
             //<GradientArc />
             //
+            /*
             <View style={{borderTopColor: 'red', borderTopWidth: 1, marginTop: 50}}>
             <GradientProcessArc progress={75} style={{lineColor: 'yellow'}}/>
             </View>
+            */
             /*
                 <View style={{borderTopColor: 'red', borderTopWidth: 1, marginTop: 50}}>
                 <MultiArc 
@@ -31,6 +34,9 @@ export default class Facade extends Component {
                 </View>
             */
             //<ArcFilterDashboard />
+            <View style={{borderTopColor: 'red', borderTopWidth: 1, marginTop: 50}}>
+                <HexagonChart />
+            </View>
         
     )
   }

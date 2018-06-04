@@ -10,6 +10,7 @@ import HexagonChart from './src/components/charts/Hexagon'
 
 export default class Facade extends Component {
   render() {
+    const w = Dimensions.get('window').width
     return (
             //<GradientArc />
             //
@@ -35,7 +36,7 @@ export default class Facade extends Component {
             */
             //<ArcFilterDashboard />
             <View style={{borderTopColor: 'red', borderBottomColor: 'red', borderBottomWidth: 1, borderTopWidth: 1, marginTop: 50}}>
-                <HexagonChart />
+                <HexagonChart viewWidth={w} rates={[0.75, 0.5, 1, 0.2, 0.5, 1]}/>
             </View>
         
     )

@@ -34,10 +34,12 @@ export default class Facade extends Component {
                 />
                 </View>
             */
-            //<ArcFilterDashboard />
+            <ArcFilterDashboard />
+            /*
             <View style={{borderTopColor: 'red', borderBottomColor: 'red', borderBottomWidth: 1, borderTopWidth: 1, marginTop: 50}}>
                 <HexagonChart viewWidth={w} rates={[0.75, 0.5, 1, 0.2, 0.5, 1]}/>
             </View>
+            */
         
     )
   }

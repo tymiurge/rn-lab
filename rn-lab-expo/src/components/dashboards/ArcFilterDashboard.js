@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, Dimensions , TouchableOpacity} from 'react-native'
 import { Header } from 'react-native-elements'
 import MultiArc from './../arc/MultiArc'
+import HexagonChart from './../charts/Hexagon'
+import GradientProcessArc from './../arc/GradientProcessArc'
 
 class ArcFilterDashboard extends Component {
     render() {
+        const w = Dimensions.get('window').width
         return (
             <View style={{flex: 1}}>
                 <Header
@@ -12,22 +15,23 @@ class ArcFilterDashboard extends Component {
                     centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
                     rightComponent={{ icon: 'home', color: '#fff' }}
                 />
-                <MultiArc 
-                    values={[
-                        {progress: 50, color: '#446CB3'},
-                        {progress: 75, color: '#4183D7'},
-                        {progress: 10, color: '#2574A9'},
-                        {progress: 30, color: '#3498DB'},
-                        {progress: 100, color: '#1E8BC3'},
-                        {progress: 35, color: '#21A7F0'},
-                    ]}
-                    style={{gap: 25}}
-                />
+                <HexagonChart viewWidth={w} rates={[0.75, 0.5, 1, 0.2, 0.5, 1]}/>
+                
                 <View style={{flex: 1, flexDirection: 'column'}}>
                     <View style={{flexDirection: 'row', alignContent: 'stretch'}}>
-                        <View style={{flex: 1, borderWidth: 1, borderColor: 'blue', margin: 2}}>
-                            <Text>A1</Text>
-                        </View>
+                        <TouchableOpacity style={{
+                            flex: 1, 
+                            margin: 2, 
+                            justifyContent: 'center', 
+                            alignItems: 'center',
+                            backgroundColor: 'rgba(204,255,204,0.5)',
+                            borderRadius: 10
+                            }}
+                            onPress={() => alert('ok')}
+                        >
+                            <GradientProcessArc progress={75} style={{lineColor: 'yellow', viewWidth: 100}}/>
+                            <Text>Skills - 75%</Text>
+                        </TouchableOpacity>
                         <View style={{flex: 1, borderWidth: 1, borderColor: 'blue', margin: 2}}>
                             <Text>A2</Text>
                         </View>

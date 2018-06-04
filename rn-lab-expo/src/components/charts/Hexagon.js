@@ -15,22 +15,34 @@ class HexagonChart extends Component {
         const apexX = Math.sqrt( r * r - (r/ 2) * (r / 2))
         const apexY = r/2
         return [
-            {x: 0, y: (-1) * r},
-            {x: apexX, y: (-1) * apexY},
-            {x: apexX, y: apexY},
-            {x: 0, y: r},
-            {x: (-1) * apexX, y: apexY},
-            {x: (-1) * apexX, y: (-1) * apexY}    
+            {y: 0, x: (-1) * r},
+            {y: apexX, x: (-1) * apexY},
+            {y: apexX, x: apexY},
+            {y: 0, x: r},
+            {y: (-1) * apexX, x: apexY},
+            {y: (-1) * apexX, x: (-1) * apexY}    
         ].map(dot => ({x: x + dot.x, y: y - dot.y}))
     }
 
+    /*
+    innerHexagonAxesis = (x, y, r, rates) => ([
+        {x: -1 * r * rates[0], y: 0},
+        {x: -1 * r * rates[1] / 2, y: Math.sqrt(Math.pow(r * rates[1]) - Math.pow(r * rates[1] / 2))},
+        {x: r * rates[2] / 2, y: Math.sqrt(Math.pow(r * rates[2]) - Math.pow(r * rates[2] / 2))},
+        {x: r * rates[3], y: 0},
+        {x: r * rates[4] / 2, y: -1 * Math.sqrt(Math.pow(r * rates[4]) - Math.pow(r * rates[4] / 2))},
+        {x: -1 * r * rates[4] / 2, y: -1 * Math.sqrt(Math.pow(r * rates[4]) - Math.pow(r * rates[4] / 2))}
+
+    ]).map(dot => ({x: x + dot.x, y: y - dot.y}))
+    */
     render() {
         /**
             properties: 
                 viewWidth
-
+                rates
          */
         const viewWidth = 360 //Dimensions.get('window').width; //
+        const rates = [0.75, 0.5, 1, 0.2, 0.5, 1]
         // component contant
         const offset = 20
 

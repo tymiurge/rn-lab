@@ -34,7 +34,7 @@ export default class Facade extends Component {
                 </View>
             */
             //<ArcFilterDashboard />
-            <View style={{borderTopColor: 'red', borderTopWidth: 1, marginTop: 50}}>
+            <View style={{borderTopColor: 'red', borderBottomColor: 'red', borderBottomWidth: 1, borderTopWidth: 1, marginTop: 50}}>
                 <HexagonChart />
             </View>
         

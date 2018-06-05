@@ -4,6 +4,35 @@ import { Header } from 'react-native-elements'
 import MultiArc from './../arc/MultiArc'
 import HexagonChart from './../charts/Hexagon'
 import GradientProcessArc from './../arc/GradientProcessArc'
+import PropTypes from 'prop-types'
+
+class Card extends Component {
+    static propTypes = {
+        progress: PropTypes.number.isRequired,
+        color: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired
+    }
+
+    render() {
+        return (
+            <TouchableOpacity style={{
+                flex: 1, 
+                margin: 2, 
+                justifyContent: 'center', 
+                alignItems: 'center',
+                backgroundColor: 'rgba(204,255,204,0.5)',
+                borderRadius: 10
+                }}
+                onPress={() => alert('ok')}
+            >
+                <GradientProcessArc 
+                    progress={this.props.progress} 
+                    style={{lineColor: this.props.color, viewWidth: 100}}/>
+                <Text>{`${this.props.text} - ${this.props.progress}%`}</Text>
+            </TouchableOpacity>
+        )
+    }
+}
 
 class ArcFilterDashboard extends Component {
     render() {
@@ -19,35 +48,15 @@ class ArcFilterDashboard extends Component {
                 
                 <View style={{flex: 1, flexDirection: 'column'}}>
                     <View style={{flexDirection: 'row', alignContent: 'stretch'}}>
-                        <TouchableOpacity style={{
-                            flex: 1, 
-                            margin: 2, 
-                            justifyContent: 'center', 
-                            alignItems: 'center',
-                            backgroundColor: 'rgba(204,255,204,0.5)',
-                            borderRadius: 10
-                            }}
-                            onPress={() => alert('ok')}
-                        >
-                            <GradientProcessArc progress={75} style={{lineColor: 'yellow', viewWidth: 100}}/>
-                            <Text>Skills - 75%</Text>
-                        </TouchableOpacity>
-                        <View style={{flex: 1, borderWidth: 1, borderColor: 'blue', margin: 2}}>
-                            <Text>A2</Text>
-                        </View>
+                        <Card color='green' progress={75} text='Skills' />
+                        <Card color='blue' progress={50} text='Benefits'/>
+                        <Card color='yellow' progress={25} text='Location'/>
                     </View>    
-                    <View>
-                        <Text>A3</Text>
-                    </View>    
-                    <View>
-                        <Text>A4</Text>
-                    </View>    
-                    <View>
-                        <Text>A5</Text>
-                    </View>    
-                    <View>
-                        <Text>A6</Text>
-                    </View>    
+                    <View style={{flexDirection: 'row', alignContent: 'stretch'}}>
+                        <Card color='green' progress={35} text='Skills' />
+                        <Card color='blue' progress={40} text='Benefits'/>
+                        <Card color='yellow' progress={25} text='Location'/>
+                    </View>
                 </View>
                 
             </View>

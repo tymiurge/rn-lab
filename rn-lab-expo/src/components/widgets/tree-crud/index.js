@@ -1,8 +1,13 @@
 TreeCrud
 
 import React, { Component } from 'react';
-import { Container, Content, Header, Left, Body, Right, Button, Icon, Title, Text, List, ListItem,  Switch} from 'native-base';
+import { 
+    Container, Content, Header, Left, Body, Right, Button, Icon, Title, 
+    Text, List, ListItem, Switch, Footer, FooterTab,
+    Card, CardItem
+} from 'native-base';
 import GradientProgressArc from './../../arc/GradientProcessArc'
+
 export default class TreeCrud extends Component {
   render() {
     return (
@@ -23,34 +28,50 @@ export default class TreeCrud extends Component {
           </Right>
         </Header>
         <Content>
-        <List>
-            <ListItem noIndent icon>
+        <Card style={{flex: 0}}>
+            <CardItem>
               <Left>
-                <GradientProgressArc 
+              <GradientProgressArc 
                     progress={75} 
-                    style={{lineColor: 'green', viewWidth: 28, padding: 0, lineWidth: 2}}
+                    style={{lineColor: 'green', viewWidth: 40, padding: 0, lineWidth: 2}}
                 />
+                <Body>
+                  <Text>NativeBase</Text>
+                  <Text note>April 15, 2016</Text>
+                </Body>
               </Left>
-              <Body>
-                <Text>Airplane Mode</Text>
-              </Body>
               <Right>
-                <Switch value={false} />
+                <Icon name="arrow-forward" />
               </Right>
-            </ListItem>
-            <ListItem icon>
+            </CardItem>
+            
+        </Card>
+        <Card style={{flex: 0}}>
+            <CardItem>
               <Left>
-                <Icon name="plane" />
+              <GradientProgressArc 
+                    progress={75} 
+                    style={{lineColor: 'green', viewWidth: 40, padding: 0, lineWidth: 2}}
+                />
+                <Body>
+                  <Text style={{fontSize: 16, width: 300}}>Nodejs full stack developer</Text>
+                  <Text note style={{width: 300}}>You're in the 25% top</Text>
+                </Body>
               </Left>
-              <Body>
-                <Text>Airplane Mode</Text>
-              </Body>
               <Right>
-                <Switch value={false} />
+                <Icon name="arrow-forward" />
               </Right>
-            </ListItem>
-        </List>
+            </CardItem>
+            
+        </Card>
+        
         </Content>
+        <Footer>
+          <Button full info>
+            <Text>Add Competency</Text>
+          </Button>
+            
+        </Footer>
       </Container>
     );
   }

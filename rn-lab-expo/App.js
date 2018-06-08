@@ -6,6 +6,9 @@ import GradientProcessArc from './src/components/arc/GradientProcessArc'
 import MultiArc from './src/components/arc/MultiArc'
 import ArcFilterDashboard from './src/components/dashboards/ArcFilterDashboard'
 import HexagonChart from './src/components/charts/Hexagon'
+import TreeCrud from './src/components/widgets/tree-crud'
+import TreeCrudStyles from './src/components/widgets/tree-crud/styles'
+import List from './src/components/lists'
 
 
 export default class Facade extends Component {
@@ -34,13 +37,14 @@ export default class Facade extends Component {
                 />
                 </View>
             */
-            <ArcFilterDashboard />
+            //<ArcFilterDashboard />
             /*
             <View style={{borderTopColor: 'red', borderBottomColor: 'red', borderBottomWidth: 1, borderTopWidth: 1, marginTop: 50}}>
                 <HexagonChart viewWidth={w} rates={[0.75, 0.5, 1, 0.2, 0.5, 1]}/>
             </View>
             */
-        
+            <TreeCrud styles={TreeCrudStyles}/>
+            //<List />
     )
   }
 }

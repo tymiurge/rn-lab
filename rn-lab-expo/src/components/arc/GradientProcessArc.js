@@ -1,10 +1,14 @@
 'use strict';
 import React from 'react'
-import { Dimensions } from 'react-native'
+import { Dimensions,View } from 'react-native'
 import Svg, {Defs, Stop, G, Path, LinearGradient, Line} from 'react-native-svg'
 import { arc } from 'd3-shape'
 import PropTypes from 'prop-types'
 
+const resolveDefaultValue = (obj, propName, defValue) => {
+    obj = obj || {}
+    return obj.hasOwnProperty(propName) ? obj[propName] : defValue
+}
 
 export default class GradientProcessArc extends React.Component {
 
@@ -24,7 +28,7 @@ export default class GradientProcessArc extends React.Component {
         const { fullCircleColor, padding, lineWidth, lineColor, viewWidth } = props.style
         this.style = {
             fullCircleColor: fullCircleColor || '#d3d3d3',
-            padding: padding || 20,
+            padding: resolveDefaultValue(props.style, 'padding', 20),
             lineWidth: lineWidth || 5,
             lineColor: lineColor || 'red',
             viewWidth: viewWidth || Dimensions.get('window').width    
@@ -51,6 +55,7 @@ export default class GradientProcessArc extends React.Component {
             .endAngle(360)
 
         return (
+            //<View style={{borderColor: 'grey', borderWidth: 1}}>
             <Svg width={viewWidth} height={viewWidth}>
                 <G>
                     <Path
@@ -69,6 +74,7 @@ export default class GradientProcessArc extends React.Component {
                 </G>
 
             </Svg>
+            //</View>
         )
     }
 }

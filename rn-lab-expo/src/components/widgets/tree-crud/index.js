@@ -1,5 +1,3 @@
-TreeCrud
-
 import React, { Component } from 'react';
 import { 
     Container, Content, Header, Left, Body, Right, Button, Icon, Title, 
@@ -67,10 +65,12 @@ export default class TreeCrud extends Component {
         
         </Content>
         <Footer>
-          <Button full info>
-            <Text>Add Competency</Text>
-          </Button>
-            
+        <FooterTab>
+        <Button vertical active>
+              <Icon active name="add-circle" />
+              <Text>Add competency</Text>
+            </Button>
+            </FooterTab>
         </Footer>
       </Container>
     );

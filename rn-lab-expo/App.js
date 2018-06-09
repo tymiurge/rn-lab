@@ -9,6 +9,7 @@ import HexagonChart from './src/components/charts/Hexagon'
 import TreeCrud from './src/components/widgets/tree-crud'
 import TreeCrudStyles from './src/components/widgets/tree-crud/styles'
 import List from './src/components/lists'
+import CompetencyWizard from './src/components/widgets/tree-crud/competency-wizard'
 
 
 export default class Facade extends Component {
@@ -43,7 +44,8 @@ export default class Facade extends Component {
                 <HexagonChart viewWidth={w} rates={[0.75, 0.5, 1, 0.2, 0.5, 1]}/>
             </View>
             */
-            <TreeCrud styles={TreeCrudStyles}/>
+            //<TreeCrud styles={TreeCrudStyles}/>
+            <CompetencyWizard />
             //<List />
     )
   }

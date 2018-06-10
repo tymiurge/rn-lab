@@ -5,3 +5,5 @@ node_modules/*
 npm-debug.*
 */node_modules/*
 rn-lab-expo/node_modules/*
+*.DS_Store
+.DS_Store

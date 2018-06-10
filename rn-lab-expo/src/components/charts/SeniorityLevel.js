@@ -27,6 +27,7 @@ export default class SeniorityLevel extends React.Component {
                                 const y = idx * width + idx * padding
                                 const fillColor = idx === current - 1 ? hitColor : noHitColor
                                 return <Rect
+                                    key={idx}
                                     x={x}
                                     y={y}
                                     width={width}

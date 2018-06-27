@@ -1,4 +1,3 @@
-'use strict';
 import React from 'react'
 import { Dimensions,View } from 'react-native'
 import Svg, {Defs, Stop, G, Path, LinearGradient, Line} from 'react-native-svg'

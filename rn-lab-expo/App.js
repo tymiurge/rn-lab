@@ -11,6 +11,7 @@ import TreeCrudStyles from './src/components/widgets/tree-crud/styles'
 import List from './src/components/lists'
 import CompetencyWizard from './src/components/widgets/tree-crud/competency-wizard'
 import SeniorityLevel from './src/components/charts/SeniorityLevel'
+import Headers from './src/components/headers'
 
 
 export default class Facade extends Component {
@@ -48,9 +49,13 @@ export default class Facade extends Component {
             //<TreeCrud styles={TreeCrudStyles}/>
             //<CompetencyWizard />
             //<List />
+            /*
             <View style={{borderTopColor: 'red', borderBottomColor: 'red', borderBottomWidth: 1, borderTopWidth: 1, marginTop: 50}}>
             <SeniorityLevel width={30} total={5} current={3}/>
             </View>
+            */
+           <Headers />
+
     )
   }
 }
